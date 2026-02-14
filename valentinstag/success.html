@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Herzlichen Glückwunsch 💘</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <main class="wrap">
+    <section class="card success">
+      <h1>Herzlichen Glückwunsch! 💖</h1>
+      <p>
+        Alles Gute zum Valentinstag!<br />
+        Das ist dein Gutschein für ein Date. 🥰
+      </p>
+
+      <div class="coupon">
+        <div class="coupon__row">
+          <span class="coupon__label">Gutschein:</span>
+          <span class="coupon__value">1× Valentinstag-Date</span>
+        </div>
+        <div class="coupon__row">
+          <span class="coupon__label">Einlösbar:</span>
+          <span class="coupon__value">Wann du willst</span>
+        </div>
+        <div class="coupon__row">
+          <span class="coupon__label">Dresscode:</span>
+          <span class="coupon__value">Küsschen-bereit 💋</span>
+        </div>
+      </div>
+
+      <a class="btn" href="index.html">Nochmal spielen</a>
+    </section>
+  </main>
+
+  <script>
+    // Lightweight Konfetti (iPhone Safari friendly)
+    (function(){
+      const canvas = document.getElementById("confetti");
+      const ctx = canvas.getContext("2d", { alpha: true });
+
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) return;
+
+      let w, h, dpr;
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2); // cap für Performance
+        w = Math.floor(window.innerWidth);
+        h = Math.floor(window.innerHeight);
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      const rand = (a,b)=> a + Math.random()*(b-a);
+
+      const colors = ["#ff4d6d","#ff8fab","#ffd6e0","#7bdff2","#b2f7ef","#a1c4fd","#cdb4db"];
+      const shapes = ["rect","circle"];
+
+      const pieces = [];
+      const count = Math.min(180, Math.floor((w*h)/6000)); // skaliert mit Bildschirm
+      const gravity = 0.12;
+      const drag = 0.995;
+
+      function spawnBurst(){
+        const centerX = w/2;
+        const startY = -20;
+
+        for(let i=0;i<count;i++){
+          pieces.push({
+            x: centerX + rand(-80,80),
+            y: startY + rand(-40,10),
+            vx: rand(-3.2, 3.2),
+            vy: rand(1.0, 5.0),
+            rot: rand(0, Math.PI*2),
+            vr: rand(-0.12, 0.12),
+            size: rand(6, 11),
+            color: colors[(Math.random()*colors.length)|0],
+            shape: shapes[(Math.random()*shapes.length)|0],
+            life: rand(160, 260)
+          });
+        }
+      }
+
+      function drawPiece(p){
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+
+        if(p.shape === "circle"){
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size/2, 0, Math.PI*2);
+          ctx.fill();
+        } else {
+          ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.7);
+        }
+        ctx.restore();
+      }
+
+      let raf = 0;
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+
+        for(let i=pieces.length-1;i>=0;i--){
+          const p = pieces[i];
+          p.vy += gravity;
+          p.vx *= drag;
+          p.vy *= drag;
+
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+
+          p.life -= 1;
+
+          // leichte „Wobble“ Bewegung
+          p.x += Math.sin((260 - p.life) * 0.02) * 0.25;
+
+          // out of bounds / tot
+          if(p.life <= 0 || p.y > h + 40 || p.x < -60 || p.x > w + 60){
+            pieces.splice(i,1);
+            continue;
+          }
+          drawPiece(p);
+        }
+
+        if(pieces.length > 0){
+          raf = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(raf);
+        }
+      }
+
+      spawnBurst();
+      tick();
+
+      // Optional: nochmal Konfetti nach 1.2s (fühlt sich „festlicher“ an)
+      setTimeout(() => {
+        spawnBurst();
+        if(pieces.length > 0) tick();
+      }, 1200);
+    })();
+  </script>
+</body>
+</html>

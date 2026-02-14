@@ -1,0 +1,236 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow: 0 12px 30px rgba(17,24,39,.08);
+  --blue:#1a73e8;
+  --red:#dc2626;
+  --green:#16a34a;
+
+  --radius:16px;
+  --pad:18px;
+}
+
+*{ box-sizing:border-box; }
+html{
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 15% 10%, #ffe4f0 0%, transparent 60%),
+    radial-gradient(900px 500px at 90% 30%, #e6f0ff 0%, transparent 60%),
+    var(--bg);
+
+  /* iOS tap highlight aus */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrap{
+  /* iOS Safari: dvh löst die Adressleisten-Probleme besser als vh */
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* Notch / Safe Area */
+  padding:
+    calc(20px + env(safe-area-inset-top))
+    calc(16px + env(safe-area-inset-right))
+    calc(20px + env(safe-area-inset-bottom))
+    calc(16px + env(safe-area-inset-left));
+}
+
+.card{
+  width:min(760px, 100%);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.card__header{
+  padding: var(--pad) var(--pad) 12px var(--pad);
+  border-bottom:1px solid var(--border);
+}
+.badge{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.08em;
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 10px;
+  margin-bottom:10px;
+}
+h1{
+  margin:0 0 6px 0;
+  font-size:22px;
+  line-height:1.2;
+}
+.sub{
+  margin:0;
+  color:var(--muted);
+  line-height:1.35;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+  padding: var(--pad);
+}
+
+.tile{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid transparent;
+  outline:none;
+  cursor:pointer;
+  aspect-ratio: 1 / 1;
+  background:#f3f4f6;
+  user-select:none;
+
+  /* iOS: fühlt sich „snappy“ an */
+  touch-action: manipulation;
+}
+
+.tile:focus-visible{
+  box-shadow: 0 0 0 3px rgba(26,115,232,.25);
+}
+
+.tile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+
+  /* iOS/Performance */
+  transform: translateZ(0);
+}
+
+.tile__check{
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:30px;
+  height:30px;
+  border-radius:999px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.08);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:transparent;
+  transition: all .15s ease;
+}
+
+.tile.selected{ border-color: var(--blue); }
+.tile.selected .tile__check{ color: var(--blue); }
+
+.row{
+  display:flex;
+  gap:10px;
+  padding: 0 var(--pad) var(--pad) var(--pad);
+}
+
+.btn{
+  appearance:none;
+  border:0;
+  background:var(--blue);
+  color:white;
+  font-weight:800;
+  padding:14px 14px;          /* größer für Touch */
+  border-radius:12px;
+  cursor:pointer;
+  flex:1;
+  min-height: 48px;           /* Apple HIG Touch Target */
+  touch-action: manipulation;
+}
+.btn:active{ transform: translateY(1px); }
+.btn--ghost{
+  background:#eef2ff;
+  color:#1f2a60;
+}
+
+.status{
+  padding: 0 var(--pad) var(--pad) var(--pad);
+  min-height: 24px;
+  color: var(--muted);
+}
+.status.error{ color: var(--red); font-weight:700; }
+.status.ok{ color: var(--green); font-weight:900; }
+
+.card__footer{
+  border-top:1px solid var(--border);
+  padding:14px var(--pad);
+}
+
+.fake-recaptcha{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.fake-recaptcha__box{
+  width:28px;height:28px;border:2px solid var(--border);border-radius:6px;
+}
+.fake-recaptcha__title{ font-weight:800; }
+.fake-recaptcha__tiny{ font-size:12px; color:var(--muted); }
+.fake-recaptcha__logo{
+  margin-left:auto;
+  color:var(--muted);
+  font-weight:900;
+  letter-spacing:.02em;
+  font-size:12px;
+}
+
+/* Erfolg */
+.success{
+  padding:26px 22px;
+  text-align:center;
+  position: relative;
+  overflow: hidden;
+}
+.success p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.5;
+}
+
+.coupon{
+  margin:18px auto 20px;
+  width:min(520px, 100%);
+  border:1px dashed #f1a7c8;
+  background: linear-gradient(180deg, #fff7fb, #ffffff);
+  border-radius:14px;
+  padding:14px 16px;
+  text-align:left;
+}
+.coupon__row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(241,167,200,.35);
+}
+.coupon__row:last-child{ border-bottom:0; }
+.coupon__label{ color:var(--muted); }
+.coupon__value{ font-weight:900; }
+
+/* Konfetti-Canvas liegt über allem, aber klickt nicht */
+#confetti{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
