@@ -1,1 +1,43 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Valentinstag CAPTCHA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Valentinstag Captcha">
+      <header class="card__header">
+        <div class="badge">CAPTCHA</div>
+        <h1>Wähle dein Valentinstag Date</h1>
+        <p class="sub">Wähle <strong>alle Bilder</strong> aus, die dein Date zeigen.</p>
+      </header>
+
+      <div class="grid" id="grid" role="group" aria-label="Bildauswahl"></div>
+
+      <div class="row">
+        <button id="verifyBtn" class="btn" type="button">CAPTCHA überprüfen</button>
+        <button id="resetBtn" class="btn btn--ghost" type="button">Neu laden</button>
+      </div>
+
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+
+      <footer class="card__footer">
+        <div class="fake-recaptcha">
+          <div class="fake-recaptcha__box" aria-hidden="true"></div>
+          <div>
+            <div class="fake-recaptcha__title">Ich bin kein Roboter</div>
+            <div class="fake-recaptcha__tiny">Valentinstag-Edition</div>
+          </div>
+          <div class="fake-recaptcha__logo" aria-hidden="true">reCAPTCHA</div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
