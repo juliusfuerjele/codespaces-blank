@@ -3,7 +3,7 @@ if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
 
 // Passe hier nur die Dateinamen an, wenn du willst:
 const IMAGES = [
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5298.jpeg", isMe: true },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5298.jpeg?raw=true", isMe: true },
   { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5668.JPG", isMe: true },
   { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy1.jpg", isMe: false },
   { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy2.jpeg", isMe: false },
