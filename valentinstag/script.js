@@ -3,11 +3,11 @@ if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
 
 // Passe hier nur die Dateinamen an, wenn du willst:
 const IMAGES = [
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5298.jpeg?raw=true", isMe: true },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5298.jpeg", isMe: true },
   { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/IMG_5668.JPG", isMe: true },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy1.jpg", isMe: false },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy2.jpeg", isMe: false },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy3.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy1.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy2.jpeg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy3.jpg", isMe: false },
   { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2818-06-2023%29_%28cropped%29.jpg/250px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2818-06-2023%29_%28cropped%29.jpg", isMe: false },
   { src: "https://i0.web.de/image/094/41883094,pd=1.jpg", isMe: false },
   { src: "https://ih1.redbubble.net/image.5656943478.1563/flat,750x,075,f-pad,750x1000,f8f8f8.jpg", isMe: false },
