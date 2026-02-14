@@ -3,15 +3,15 @@ if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
 
 // Passe hier nur die Dateinamen an, wenn du willst:
 const IMAGES = [
-  { src: "images/IMG_5298.jpeg", isMe: true },
-  { src: "images/IMG_5668.JPG", isMe: true },
-  { src: "images/decoy1.jpg", isMe: false },
-  { src: "images/decoy2.jpeg", isMe: false },
-  { src: "images/decoy3.jpg", isMe: false },
-  { src: "images/decoy4.jpg", isMe: false },
-  { src: "images/decoy5.jpg", isMe: false },
-  { src: "images/decoy6.jpg", isMe: false },
-  { src: "images/decoy7.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//IMG_5298.jpeg", isMe: true },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//IMG_5668.JPG", isMe: true },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy1.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy2.jpeg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy3.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy4.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy5.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy6.jpg", isMe: false },
+  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images//decoy7.jpg", isMe: false },
 ];
 
 const grid = document.getElementById("grid");
