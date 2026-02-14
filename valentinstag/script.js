@@ -6,7 +6,7 @@ const IMAGES = [
   { src: "images/me1.jpg", isMe: true },
   { src: "images/me2.jpg", isMe: true },
   { src: "images/decoy1.jpg", isMe: false },
-  { src: "images/decoy2.jpg", isMe: false },
+  { src: "images/decoy2.jpeg", isMe: false },
   { src: "images/decoy3.jpg", isMe: false },
   { src: "images/decoy4.jpg", isMe: false },
   { src: "images/decoy5.jpg", isMe: false },
