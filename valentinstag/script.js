@@ -5,9 +5,9 @@ if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
 const IMAGES = [
   { src: "https://raw.githubusercontent.com/juliusfuerjele/codespaces-blank/refs/heads/main/valentinstag/images/IMG_5298.jpeg", isMe: true },
   { src: "https://raw.githubusercontent.com/juliusfuerjele/codespaces-blank/refs/heads/main/valentinstag/images/IMG_5668.JPG", isMe: true },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy1.jpg", isMe: false },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy2.jpeg", isMe: false },
-  { src: "https://github.com/juliusfuerjele/codespaces-blank/blob/main/valentinstag/images/decoy3.jpg", isMe: false },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Henry_Cavill_SDCC_2014_%28cropped%29.jpg/960px-Henry_Cavill_SDCC_2014_%28cropped%29.jpg", isMe: false },
+  { src: "https://images.bild.de/646dab8af919533b00acc7f1/67b0a29cda75374cf80431bab49d6daa,1a4ef34b?w=992", isMe: false },
+  { src: "https://www.reuters.com/resizer/v2/https%3A%2F%2Farchive-images.prod.global.a201836.reutersmedia.net%2F2009%2F11%2F13%2F2009-11-13T013024Z_01_GM1E5BD09WY01_RTRRPP_0_RUSSIA.JPG?auth=293bfd40003c98358cf1726b9610a6ed2dbcd997748a3306aedfbd78b9eccff7&width=1920&quality=80", isMe: false },
   { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2818-06-2023%29_%28cropped%29.jpg/250px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2818-06-2023%29_%28cropped%29.jpg", isMe: false },
   { src: "https://i0.web.de/image/094/41883094,pd=1.jpg", isMe: false },
   { src: "https://ih1.redbubble.net/image.5656943478.1563/flat,750x,075,f-pad,750x1000,f8f8f8.jpg", isMe: false },
